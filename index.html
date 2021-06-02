@@ -24,14 +24,12 @@
     const bt = document.getElementById("bt");
     const report = document.getElementById("report");
     const title = document.getElementById("title");
-    bt.addEventListener('click', createIssue);
-
 
     async function createIssue() {
         console.log("Hello World");
         const url = "https://api.github.com/repos/qgan7125/testGithubApi/issues";
         const headers = {
-            "Authorization": "Token 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"
+            "Authorization": "Token"
         };
         const payLoad = {
             title: title.value,
