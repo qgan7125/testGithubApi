@@ -1,0 +1,44 @@
+<!-- views/success.ejs -->
+<!doctype html>
+<html>
+  <head>
+    <title>Github OAuth</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> <!-- load bulma css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- load fontawesome -->
+      <style>
+          body        { padding-top:70px; }
+      </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+          <h1 class="text-primary  text-center"><span class="fa fa-github"></span> Github</h1>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="well">
+                <span>Title: </span>
+                <input id="title">
+                <button id="submit">click</button>
+                <textarea id="report" rows="10" cols="70" placeholder="Please enter"></textarea>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <<script type="text/javascript">
+    var title = document.getElementById('title');
+    var report = document.getElementById('report');
+    var bt = document.getElementById('submit');
+
+    bt.addEventListener('click', createIssue);
+
+    async function createIssue(){
+      const url = `http://localhost:2400/issues?title=${title.value}&report=${report.value}`
+      fetch(url)
+      .then(res => {
+        console.log("success")
+      })
+    }
+  </script>
+</html>
